@@ -1,27 +1,8 @@
 import random
 
 def daily_sales(available_items, inventory_records, current_day):
-    if current_day % 7 != 0:
-        sales = (random.randint(0,2000))
-        available_items = available_items - sales
-
-    '''
-***********COMPLETE THIS FUNCTION***********
-This function is responsible for updating the sales for a given day.
----------------
-Function Input:
----------------
-available_items: (integer) Available Tshirts from the previous day.
-inventory_records: (List) A list of inventory records until the previous day. Each row contains (day, sales, restocked items, available items)
-current_day: (integer) Day number which you want to add as the current day. 
-
-----------------
-Function Output:
-----------------
-available_items:(integer) This function returns this integer which updates the available items at the current day.
-
-The function will also update the inventory_records (For restocking) for a  given current day. 
-
-    '''
-    
-    return available_items
+    if current_day % 7 != 0:                                            # if the current day is not divisible by 7 it is a sales day
+        sales = random.randint(0,200)                                   # use a random number to simulate the sales
+        available_items = available_items-sales                         # The daily sales are subtracted from the stock
+        inventory_records += [[current_day, sales, 0, available_items]] # inventory records are updated
+    return available_items                                              # return available items as integers
